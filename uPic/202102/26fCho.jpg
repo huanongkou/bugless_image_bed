@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html >
+	<head>
+		<title>凡科快图</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="renderer" content="webkit" />
+		<meta content="always" name="referrer">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<meta http-equiv="content-security-policy" content="script-src 'unsafe-inline' 'unsafe-eval'  *.baidu.com *.bdstatic.com *.wx.qq.com *.googletagmanager.com *.google-analytics.com jspassport.ssl.qhimg.com s.ssl.qhres.com *.amap.com fe.aaa.cn *.faisys.com *.fkw.com; frame-src data: *.faisco.cn *.weixin.qq.com *.weixin.qq.com *.faibak.com *.faiusr.com *.fkw.com; media-src  *.faisys.com;">
+		<script id="faiHawkEyeScript" type="text/javascript">  
+(function() { 
+var fs = document.createElement("script"); 
+fs.src = "//fe.faisys.com/jssdk_1_1/js/hawkEye.min.js?v=202101221454";
+fs.id = "faiHawkEye";
+window.FAI_HAWK_EYE = {}; 
+window.FAI_HAWK_EYE.jssdk_report_url = "//datareport.fkw.com/js/report"; 
+window.FAI_HAWK_EYE.jssdk_appid = 6012; 
+window.FAI_HAWK_EYE.fai_is_oem = 0; 
+window.FAI_HAWK_EYE.fai_aid = 24766519; 
+window.FAI_HAWK_EYE.fai_bs_aid = 4599789; 
+window.FAI_HAWK_EYE.fai_bs_id = 136; 
+window.FAI_HAWK_EYE.fai_bs_wid = 0; 
+window.FAI_HAWK_EYE.fai_web_name = "ktuhome"; 
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(fs, s);
+})();</script>
+
+		
+		
+		<meta content="always" name="referrer">
+<link type="text/css" href="//fe.faisys.com/header_1_0/css/header.min.css?v=202003121558" rel="stylesheet">
+
+<style type="text/css">
+	#login_btn{
+		vertical-align: middle;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+	}
+	.loginWindow div{
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+	}
+	.topbar-item .f-portrait{
+		background:none;
+		background-image:url("//kth.faisys.com/image/share/defaultIcon.svg") !important;
+		background-size: cover;
+	}
+	.topbar-item-manageCenter .f-portrait-bg{
+		/* display:none !important; */
+	}
+	.clear{
+		clear: both;
+	}
+</style>
+		<link href="//kth.faisys.com/css/ktuShare.css/ktuShare.min.css?v=202101191657" rel="stylesheet" id="initialStyle"/>
+		<script src="//kth.faisys.com/js/comm/vconsole.min.js?v=202003161428"></script>
+		
+			<script type="text/javascript" src="//fe.faisys.com/browserChecked_1_0/js/browserCheck.min.js?v=202010231409"></script>
+		
+		<script>
+			var browserInfo = BrowserChecked({
+				supportList: [{
+					name: "chrome",
+					// version: "35"
+					version: "50"
+				},{
+					name: "opera",
+					version: "50"
+				},{
+					name: "firefox",
+					version: "60"
+				},{
+					name: "safari"
+				},{
+					name: "edge"
+				}]
+			});
+			if (!browserInfo.isSupport) {
+				window.location.href = "/lvBrowser.jsp?url=" + encodeURIComponent(location.pathname + location.search);
+			}
+		</script>
+		
+	</head>
+	<body>
+		<script src="//kth.faisys.com/js/comm/jquery/jquery-core.min.js?v=202005181149"></script>
+
+<script>var HEADER_HOME_URL = '//fe.faisys.com/header_1_0', HEADER_DOMAIN_NAME = '//fe.faisco.cn/header_1_0', isHEADERDebug = false, HOME_DOMAIN='fkw.com';</script><script type="text/javascript" src="//fe.faisys.com/header_1_0/js/header.min.js?v=202006021127"></script>
+<script type="text/javascript" src="//kth.faisys.com/js/comm/fai.min.js?v=201903041201"></script>
+
+<script type="text/javascript">
+	$(function(){
+
+		//获取用户的登陆状态或者登陆后的开通状态
+        function getUserState() {
+            $.ajax({
+                type : 'post',
+                url : '../ajax/ktuProf_h.jsp?cmd=checkOpening',
+                error : function(){
+                },
+                success : function(data){
+                    var data = $.parseJSON(data);
+                    changePageTips(data.state);
+                }
+            });
+        }
+
+        //如果登陆开通文案和链接改为如下state==2，如果登陆未开通链接改为如下state==1.state==0未登录不需要改变
+        function changePageTips(state){
+            
+            var path = header.getManageUrl();
+            var originalPath = "//"+portalHost + "/?f_ktu=true";
+
+            if(state == 2) {
+            	$('.toHomeBtn span').text('进入管理');
+            	$('.toHomeBtn').attr('data-text','进入管理');
+            	$('.toHomeBtn').attr('href',path);
+            } else if(state == 1) {
+                $('.toHomeBtn span').text('免费体验');
+                $('.toHomeBtn').attr('data-text','免费体验');
+				$('.toHomeBtn').attr('href',path);
+            } else {
+                $('.toHomeBtn span').text('免费体验');
+                $('.toHomeBtn').attr('data-text','免费体验');
+                $('.toHomeBtn').attr('href',originalPath);
+            }
+        }
+
+        getUserState();
+
+
+        // var $doc = $(document);
+        // var visibilitychangeEvt = 'visibilitychange';
+
+        // $doc.on(visibilitychangeEvt, function(e){
+        //     if(document.visibilityState=='visible'){
+        //         getUserState();
+        //     }
+        // });
+    });
+</script>
+		
+			
+
+
+
+
+
+
+
+
+<link type="text/css" href="//fe.faisys.com/popupLoginComponents_1_0/css/popupLoginComponents.min.css?v=202012231611" rel="stylesheet"><link type="text/css" href="//fe.faisys.com/faitest_1_3/css/faitest.min.css?v=202003311534" rel="stylesheet">
+<div class="f-topBar f-fkw-topBar header f_DNSTraffic">
+    <div class="fkw-topbar-box container">
+        <div class="logo" >
+            <svg id="svg-logo" viewBox="0 0 142 35" width="100%" height="100%" style="cursor:pointer;" onclick="location.href='//kt.fkw.com';">
+                <path d="M14.66,5.53A33.6,33.6,0,0,0,0,26.53a22.28,22.28,0,0,1,6.74,7A34,34,0,0,1,14.66,5.53Z" fill="#2bcc6f"/>
+                <path d="M15.31,11A35,35,0,0,1,32.48,5.63,57.86,57.86,0,0,1,33.92,0,22,22,0,0,0,22.81,3.3,22.43,22.43,0,0,0,15.31,11Z" fill="#f73"/>
+                <path d="M31.78,10a34,34,0,0,0-14.85,4.53A11.66,11.66,0,0,0,11.2,23a34.25,34.25,0,0,0,.4,12,56.91,56.91,0,0,1,22.26-1.62A57.29,57.29,0,0,1,31.78,10Z" fill="#2882ff"/>
+                <polygon points="48.3 11.47 48.28 11.47 53.08 21.49 55.69 21.49 50.89 11.47 48.3 11.47" fill="#414247"/>
+                <path d="M61.52,7.81h0V7.09a1.18,1.18,0,0,0-1.18-1.18H42.2V23.68a23,23,0,0,1-1.3,5.38h2.44a22.83,22.83,0,0,0,1.31-5.32L44.58,7.81H59.15V27.17h0v1.89h3.68l.5-1.89h-1.8Z" fill="#414247"/>
+                <path d="M75.88,16H73.44a59.06,59.06,0,0,0,1.13,11.66h2.48A54.78,54.78,0,0,1,75.88,16Z" fill="#414247"/>
+                <path d="M65.6,27.66h2.48A59.06,59.06,0,0,0,69.21,16H66.77A54.78,54.78,0,0,1,65.6,27.66Z" fill="#414247"/>
+                <polygon points="86.57 5.9 86.57 5.9 84.22 5.9 84.2 5.9 84.2 20.46 77.45 21.45 77.45 23.35 84.2 22.36 84.2 29.05 86.57 29.05 86.57 22.02 89.01 21.66 89.01 19.76 86.57 20.12 86.57 5.9" fill="#414247"/>
+                <path d="M76.26,14.09v-1.9H72.51V8.79h0V8.18a26.5,26.5,0,0,0,3.75-.78V5.5a50.12,50.12,0,0,1-9.87,1.36s0,1.9,0,1.9c1.39-.06,2.64-.16,3.75-.27v3.7H66.39v1.9h3.75v15h2.37v-15Z" fill="#414247"/>
+                <polygon points="83.26 12.28 80.86 7.26 78.27 7.26 78.25 7.26 80.65 12.28 83.26 12.28" fill="#414247"/>
+                <polygon points="83.26 18.64 80.86 13.61 78.27 13.61 78.25 13.61 80.65 18.64 83.26 18.64" fill="#414247"/>
+                <polygon points="95.8 5.67 95.78 5.67 95.78 29.07 98.15 29.07 98.15 5.67 98.15 5.67 95.8 5.67" fill="#414247"/>
+                <polygon points="101.55 11.44 101.54 11.44 99.19 11.44 99.17 11.44 99.17 23.11 101.54 23.11 101.55 11.44" fill="#414247"/>
+                <path d="M91.25,23.11h2.49a60.37,60.37,0,0,0,1.12-11.67H92.42A54.85,54.85,0,0,1,91.25,23.11Z" fill="#414247"/>
+                <path d="M115.16,10.14A1.17,1.17,0,0,0,114,9h-4.38V5.67h-2.37V9h-4.56v1.9h4.56v6.78h-5.08v1.9h4.61c-1.27,2.11-4.17,6.91-5.88,9.54h2.78c1.72-2.65,4.12-6.63,5.2-8.44,1.23,2,4,6.39,5.27,8.44h2.76c-1.28-2-4.51-7.25-5.92-9.54h5.92v-1.9h-1.74Zm-5.55.72h3.18v6.78h-3.18Z" fill="#414247"/>
+                <path d="M139.67,5.86H119.23V29.08h21.61V7A1.17,1.17,0,0,0,139.67,5.86ZM121.6,27.18V7.76h16.87V27.18Z" fill="#414247"/>
+                <path d="M132.51,16a27.93,27.93,0,0,0,5-4h0a1.16,1.16,0,0,0-.88-1.9H126.26c.35-1,.6-1.74.63-1.81H124.4s-1.43,4.06-2.36,6h2.56c.12-.24.24-.51.36-.79a35.85,35.85,0,0,0,3.09,2.49A35.85,35.85,0,0,1,122,18v2.49a33.81,33.81,0,0,0,8.15-3.14,21.81,21.81,0,0,0,7.79,3V18A18.21,18.21,0,0,1,132.51,16Zm-5.67-4h7.45a21.14,21.14,0,0,1-3.86,2.77A30.82,30.82,0,0,1,126.84,11.94Z" fill="#414247"/>
+                <polygon points="125.08 19.74 125.05 21.65 135.9 22.88 135.91 20.97 125.08 19.74" fill="#414247"/>
+                <polygon points="123.74 24.86 136.72 26.34 136.72 24.43 123.74 22.95 123.74 24.86" fill="#414247"/>
+            </svg>
+            <a class="fkwProduct" href="//www.fkw.com" onclick="logDog(4000140,5);" target="_blank">凡科网旗下产品</a>
+        </div>
+        <div class="f-topbar-right">
+            <div class="opPanel">
+                <div class="topbar-item topbar-item-registerCenter">
+                    <div class="topbar_btn topbar_btn_registerCenter">
+                        <i class="topbar_btn_icon_before"></i>
+                        
+                        <a href="//kt.fkw.com/reg.html?_ta=4387" target="_blank" class="topbar_btn_text">免费注册</a>
+                        <i class="topbar_btn_icon_after"></i>
+                    </div>
+                </div>
+                <div class="topbar-item topbar-item-loginCenter">
+                    <div class="topbar_btn topbar_btn_loginCenter">
+                        <i class="topbar_btn_icon_before"></i>
+                            <span id="login_btn" class="topbar_btn_text">登录</span>
+                        <i class="topbar_btn_icon_after"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>var HEADER_HOME_URL = '//fe.faisys.com/popupLoginComponents_1_0', HEADER_DOMAIN_NAME = '//fe.faisco.cn/popupLoginComponents_1_0', isHEADERDebug = false, _FAI_ENV_=0, HOME_DOMAIN='fkw.com';</script><script type="text/javascript" src="//fe.faisys.com/popupLoginComponents_1_0/js/popupLoginComponents.min.js?v=202102031606"></script><script>var P_RES_HOST = '//ps.faisys.com'</script><script type="text/javascript" src="//fe.faisys.com/faitest_1_3/js/faitest.min.js?v=202004081556"></script>
+
+<script type='text/javascript'>
+
+    var hasSession = false;
+    var token = $('#_TOKEN') ? $('#_TOKEN').attr('value') : "";
+    $(function(){
+        var ktuManageDomain = "i.kt.fkw.com";
+        var portalDomain = "i.fkw.com";
+        /* Act on the event */
+        document.addEventListener("visibilitychange",function(e){
+            if(document.visibilityState=='visible'){
+                $.ajax({
+                    type:"post",
+                    url:"/ajax/login_h.jsp?cmd=checkLoginState",
+                    error:function(){
+
+                    },
+                    success:function(result){
+                        var result = jQuery.parseJSON(result);
+                        if (result.success) {
+                            if(!hasSession || token != result.token){
+                                window.location.reload();
+                            }
+                        }else {
+                            if(hasSession){
+                                window.location.reload();
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        $(".nav_btnArea .personal_manage .logout_btn").click(function(){
+            _logout();
+        });
+        $("#login_btn").click(function(){
+            //logDog(2000232, 10);
+            popupLoginComponents.showPopupLoginWindow();
+            popupLoginComponents.bindWeChatLogin();
+        });
+        function _logout(){
+            if(confirm("确定要退出系统吗？")){
+                $.ajax({
+                    type: 'post',
+                    url: '/ajax/login_h.jsp?cmd=logout',
+                    error: function(error){
+                        alert("服务繁忙，请稍后重试。");
+                    },
+                    success: function(result){
+                        var result = jQuery.parseJSON(result);
+                        if (result.success) {
+                            // 不跳转了
+                            window.location.reload();
+                        } else {
+                            alert(result.msg);
+                        }
+                    }
+                });
+            }
+        }
+
+    });
+</script>
+
+
+
+		
+
+		<div id="ktu" class="f_DNSTraffic">
+    <svg-sprite v-if="!isPhone"></svg-sprite>
+    <view-area :is-phone="isPhone" :is-weixin="isWeixin"></view-area>
+</div>
+
+
+		<script type="text/javascript">
+			var portalHost = "i.fkw.com";
+			var Ktu = {};
+			Ktu.isPhone = false;
+			Ktu._homeDomain = "kt.fkw.com";
+			Ktu._manageDomain = "i.kt.fkw.com";
+			Ktu._faiscoAid = 24766519;
+			Ktu.resRoot = "//kt.faisys.com";
+            Ktu.hasLoginned = false;
+            Ktu.uuid = "4CBVDZ48";
+            Ktu.mixins = {};
+            Ktu.directive = {};
+            Ktu.modal = {};
+            Ktu.storeModule = {};
+            Ktu.flyerFontList = [{"id":35,"type":0,"isCharge":2,"name":"bansong.ttf","parent":-1,"cname":"bansong","optionname":"字体管家版宋"},{"id":41,"type":0,"isCharge":2,"name":"mianhuatang.ttf","parent":-1,"cname":"mianhuatang","optionname":"字体管家棉花糖"},{"id":43,"type":0,"isCharge":2,"name":"tiantianquan.ttf","parent":-1,"cname":"tiantianquan","optionname":"甜甜圈"},{"id":42,"type":0,"isCharge":2,"name":"runhang.ttf","parent":-1,"cname":"runhang","optionname":"字体管家润行"},{"id":44,"type":0,"isCharge":2,"name":"xihe.ttf","parent":-1,"cname":"xihe","optionname":"夕禾"},{"id":47,"type":0,"isCharge":2,"name":"boDian.ttf","parent":-1,"cname":"boDian","optionname":"字体管家波点"},{"id":48,"type":0,"isCharge":2,"name":"cuYuan.ttf","parent":-1,"cname":"cuYuan","optionname":"字体管家粗圆"},{"id":49,"type":0,"isCharge":2,"name":"fangMeng.ttf","parent":-1,"cname":"fangMeng","optionname":"字体管家方萌"},{"id":50,"type":0,"isCharge":2,"name":"xingYue.ttf","parent":-1,"cname":"xingYue","optionname":"字体管家星玥体"},{"id":39,"type":0,"isCharge":2,"name":"bojue.ttf","parent":-1,"cname":"bojue","optionname":"字体管家幻夜伯爵"},{"id":38,"type":0,"isCharge":2,"name":"guiqi.ttf","parent":-1,"cname":"guiqi","optionname":"鬼泣"},{"id":51,"type":0,"isCharge":2,"name":"ChineseTeacher.ttf","parent":-1,"cname":"ChineseTeacher","optionname":"语文老师的字"}];
+            Ktu._visitorFaiscoAid = 0;
+			Ktu._visitorKtuAid = 0;
+			Ktu.ktuExist = true;
+			Ktu.isMiddleAcct = false;
+			Ktu.ktuAuth = false;
+		</script>
+
+		<script src="//kth.faisys.com/js/comm/common/ktuShare-common.min.js?v=202004201200"></script>
+		<script src="//kth.faisys.com/js/ktuShare.min.js?v=202101181214"></script>
+	</body>
+</html>
